@@ -73,10 +73,6 @@ router.get("/payorexit", (req, res) => {
     })
 })
 
-router.get("/enterbilltopay", (req, res) => {
- res.json({});
-})
-
 router.get("/enterphonetopay", (req, res) => {
     res.json({
     "title":"DIOOL CAMEROON",
