@@ -57,7 +57,7 @@ router.get("/enteramount", (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":"Please enter your tax number: ",
+        "message":"Please enter amount: ",
         "form": {
            // "url": `${process.env.baseUrl}/payorexit`,
             "url": "https://cad5-ussd.onrender.com/choosetelco",
