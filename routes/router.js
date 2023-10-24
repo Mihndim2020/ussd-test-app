@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
         "message":"Welcome to CAD 5, please enter: ",
         "links": [
             {
-            "content":"To Pay your tax",
+            "content":" To Pay your tax",
            // "url":`${process.env.baseUrl}/enterbilltocheck`
             "url":"https://cad5-ussd.onrender.com/enterbilltocheck"
             },
             {
-            "content":"To Check your tax status",
+            "content":" To Check your tax status",
            // "url":`${process.env.baseUrl}/enterbilltocheck`
             "url":"https://cad5-ussd.onrender.com/enterbilltocheck"
             }
@@ -55,12 +55,12 @@ router.get("/payorexit", (req, res) => {
         "message":"M. PHILIPPE BOUPDA, your tax number DIOOL237 is of amount 8999 XAF  is available for payment: ",
         "links": [
             {
-            "content":"Pay my tax",
+            "content":" Pay my tax",
            // "url":`${process.env.baseUrl}/enterphonetopay`
             "url":"https://cad5-ussd.onrender.com/choosetelco"
             },
             {
-            "content":"To Quit",
+            "content":" To Quit",
            // "url":`${process.env.baseUrl}/quit` 
             "url":"https://cad5-ussd.onrender.com/quit" 
             }
@@ -80,17 +80,17 @@ router.get("/choosetelco", (req, res) => {
         "message":"Choose your mobile money operator: ",
         "links": [
             {
-            "content":"Orange Money",
+            "content":" Orange Money",
            // "url":`${process.env.baseUrl}/enterphonetopay`
             "url":"https://cad5-ussd.onrender.com/enterphonetopay"
             },
             {
-            "content":"MTN Mobile Money",
+            "content":" MTN Mobile Money",
            // "url":`${process.env.baseUrl}/enterphonetopay`
             "url":"https://cad5-ussd.onrender.com/enterphonetopay"
             },
             {
-            "content":"Express Union Mobile Money",
+            "content":" Express Union Mobile Money",
            // "url":`${process.env.baseUrl}/enterphonetopay`
             "url":"https://cad5-ussd.onrender.com/enterphonetopay"
             }
