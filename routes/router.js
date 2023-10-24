@@ -19,8 +19,51 @@ router.get("/", (req, res) => {
             "content":" To Check your tax status",
            // "url":`${process.env.baseUrl}/enterbilltocheck`
             "url":"https://cad5-ussd.onrender.com/enterpaidbill"
+            },
+            {
+            "content":" Make a deposit / pay upfront",
+           // "url":`${process.env.baseUrl}/enterbilltocheck`
+            "url":"https://cad5-ussd.onrender.com/enterpayupfront"
             }
         ],
+        "page":{
+            "menu":"true",
+            "history":"true",
+            "navigation_keywords":"true"
+        }
+    })
+})
+
+router.get("/enterpayupfront", (req, res) => {
+    res.json({
+        "title":"Mairie de Douala 5ème",
+      "name": "Diool Bill payments",
+        "message":"Please enter your tax number: ",
+        "form": {
+           // "url": `${process.env.baseUrl}/payorexit`,
+            "url": "https://cad5-ussd.onrender.com/enteramount",
+            "type": "text",
+            "method": "get"
+        },
+        "page":{
+            "menu":"true",
+            "history":"true",
+            "navigation_keywords":"true"
+        }
+    })
+})
+
+router.get("/enteramount", (req, res) => {
+    res.json({
+        "title":"Mairie de Douala 5ème",
+      "name": "Diool Bill payments",
+        "message":"Please enter your tax number: ",
+        "form": {
+           // "url": `${process.env.baseUrl}/payorexit`,
+            "url": "https://cad5-ussd.onrender.com/choosetelco",
+            "type": "text",
+            "method": "get"
+        },
         "page":{
             "menu":"true",
             "history":"true",
