@@ -13,12 +13,12 @@ router.get("/", (req, res) => {
             {
             "content":"To Pay your tax",
            // "url":`${process.env.baseUrl}/enterbilltocheck`
-            "url":"https://e487-154-72-150-251.ngrok.io/enterbilltocheck"
+            "url":"https://cad5-ussd.onrender.com/enterbilltocheck"
             },
             {
             "content":"To Check your tax status",
            // "url":`${process.env.baseUrl}/enterbilltocheck`
-            "url":"https://e487-154-72-150-251.ngrok.io/enterbilltocheck"
+            "url":"https://cad5-ussd.onrender.com/enterbilltocheck"
             }
         ],
         "page":{
@@ -36,7 +36,7 @@ router.get("/enterbilltocheck", (req, res) => {
         "message":"Please enter your tax number: ",
         "form": {
            // "url": `${process.env.baseUrl}/payorexit`,
-            "url": "https://e487-154-72-150-251.ngrok.io/payorexit",
+            "url": "https://cad5-ussd.onrender.com/payorexit",
             "type": "text",
             "method": "get"
         },
@@ -57,12 +57,12 @@ router.get("/payorexit", (req, res) => {
             {
             "content":"Pay my tax",
            // "url":`${process.env.baseUrl}/enterphonetopay`
-            "url":"https://e487-154-72-150-251.ngrok.io/enterphonetopay"
+            "url":"https://cad5-ussd.onrender.com/enterphonetopay"
             },
             {
             "content":"To Quit",
            // "url":`${process.env.baseUrl}/quit` 
-            "url":"https://e487-154-72-150-251.ngrok.io/quit" 
+            "url":"https://cad5-ussd.onrender.com/quit" 
             }
         ],
         "page":{
@@ -84,7 +84,7 @@ router.get("/enterphonetopay", (req, res) => {
         "message":"Please enter the phone number you want to pay with: ",
         "form": {
            // "url": `${process.env.baseUrl}/paymentrequest`,
-            "url": "https://e487-154-72-150-251.ngrok.io/paymentrequest",
+            "url": "https://cad5-ussd.onrender.com/paymentrequest",
             "type": "text",
             "method": "get"
         },
