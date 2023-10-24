@@ -18,9 +18,28 @@ router.get("/", (req, res) => {
             {
             "content":" To Check your tax status",
            // "url":`${process.env.baseUrl}/enterbilltocheck`
-            "url":"https://cad5-ussd.onrender.com/enterbilltocheck"
+            "url":"https://cad5-ussd.onrender.com/enterpaidbill"
             }
         ],
+        "page":{
+            "menu":"true",
+            "history":"true",
+            "navigation_keywords":"true"
+        }
+    })
+})
+
+router.get("/enterpaidbill", (req, res) => {
+    res.json({
+        "title":"Mairie de Douala 5ème",
+      "name": "Diool Bill payments",
+        "message":"Please enter your tax number: ",
+        "form": {
+           // "url": `${process.env.baseUrl}/payorexit`,
+            "url": "https://cad5-ussd.onrender.com/billpaid",
+            "type": "text",
+            "method": "get"
+        },
         "page":{
             "menu":"true",
             "history":"true",
@@ -52,7 +71,7 @@ router.get("/payorexit", (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":"M. PHILIPPE BOUPDA, your tax number DIOOL237 is of amount 8999 XAF  is available for payment: ",
+        "message":`M. XYZ, your tax number ${Math.floor(100000000 + Math.random() * 900000000)} of amount ${Math.floor(100000 + Math.random() * 900000)} XAF  is available for payment: `,
         "links": [
             {
             "content":" Pay my tax",
@@ -122,6 +141,14 @@ router.get("/enterphonetopay", (req, res) => {
     })
 });
 
+router.get("/billpaid", (req, res) => {
+    res.json({
+        "page":{
+            "session_end":"true"
+        },
+        "message":`Your tax number ${Math.floor(100000000 + Math.random() * 900000000)} of amount ${Math.floor(100000 + Math.random() * 900000)} XAF has been paid. Thank you for using our services ` // customize messages will be useful here. 
+    })
+});
 router.get("/paymentrequest", (req, res) => {
     res.json({
         "page":{
