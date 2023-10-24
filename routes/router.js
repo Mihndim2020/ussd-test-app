@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     res.json({
-        "title":"DIOOL CAMEROON",
+        "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
         "message":"Welcome to CAD 5, please enter: ",
         "links": [
@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 
 router.get("/enterbilltocheck", (req, res) => {
     res.json({
-        "title":"DIOOL CAMEROON",
+        "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
         "message":"Please enter your tax number: ",
         "form": {
@@ -50,14 +50,14 @@ router.get("/enterbilltocheck", (req, res) => {
 
 router.get("/payorexit", (req, res) => {
     res.json({
-        "title":"DIOOL CAMEROON",
+        "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":"Your tax number DIOOL237 is of amount 8999 XAF  is available for payment: ",
+        "message":"M. PHILIPPE BOUPDA, your tax number DIOOL237 is of amount 8999 XAF  is available for payment: ",
         "links": [
             {
             "content":"Pay my tax",
            // "url":`${process.env.baseUrl}/enterphonetopay`
-            "url":"https://cad5-ussd.onrender.com/enterphonetopay"
+            "url":"https://cad5-ussd.onrender.com/choosetelco"
             },
             {
             "content":"To Quit",
@@ -73,9 +73,39 @@ router.get("/payorexit", (req, res) => {
     })
 })
 
+router.get("/choosetelco", (req, res) => {
+    res.json({
+        "title":"Mairie de Douala 5ème",
+      "name": "Diool Bill payments",
+        "message":"Choose your mobile money operator: ",
+        "links": [
+            {
+            "content":"Orange Money",
+           // "url":`${process.env.baseUrl}/enterphonetopay`
+            "url":"https://cad5-ussd.onrender.com/enterphonetopay"
+            },
+            {
+            "content":"MTN Mobile Money",
+           // "url":`${process.env.baseUrl}/enterphonetopay`
+            "url":"https://cad5-ussd.onrender.com/enterphonetopay"
+            },
+            {
+            "content":"Express Union Mobile Money",
+           // "url":`${process.env.baseUrl}/enterphonetopay`
+            "url":"https://cad5-ussd.onrender.com/enterphonetopay"
+            }
+        ],
+        "page":{
+            "menu":"true",
+            "history":"true",
+            "navigation_keywords":"true"
+        }
+    })
+})
+
 router.get("/enterphonetopay", (req, res) => {
     res.json({
-    "title":"DIOOL CAMEROON",
+    "title":"Mairie de Douala 5ème",
        "name": "Diool Bill payments",
         "message":"Please enter the phone number you want to pay with: ",
         "form": {
