@@ -74,7 +74,7 @@ router.get("/payorexit", (req, res) => {
 })
 
 router.get("/enterbilltopay", (req, res) => {
- // Paying a bill, entails checking the bill if is it available... 
+ res.json({});
 })
 
 router.get("/enterphonetopay", (req, res) => {
