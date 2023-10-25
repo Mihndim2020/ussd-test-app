@@ -9,9 +9,7 @@ This is ussd test app build with express js a Node framework.
  - Node JS
 
 ### Frameworks
-- React JS 
- - HTML 5
- - CSS3
+- Express JS
 
 ### Technologies used
 - GIT
