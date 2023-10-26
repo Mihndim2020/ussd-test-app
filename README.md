@@ -23,7 +23,7 @@ This is ussd test app build with express js a Node framework.
 
 ## Getting Started
 - Use npm install to install dependencies
-- Run npm run start to run the project
+- Run npm run dev to start the dev server
 
 ### Prerequisites
  - Node JS
