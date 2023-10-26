@@ -6,8 +6,7 @@ This is ussd test app build with express js a Node framework.
 ## Built With
 
 ### Major languages
- - JavaScript
-
+ - Node JS
 
 ### Frameworks
 - Express JS
