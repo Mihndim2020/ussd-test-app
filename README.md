@@ -28,7 +28,6 @@ This is ussd test app build with express js a Node framework.
 ### Prerequisites
  - Node JS
  - VS code(any IDE)
- - Browser
  - Git
 
 ### Setup
