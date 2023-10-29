@@ -41,7 +41,7 @@ This is ussd test app build with express js a Node framework.
 - Use npm start to start the project
 
 ### Run tests
-- Not yet available at the moment
+
   
 ### Deployment
 Coming soon
