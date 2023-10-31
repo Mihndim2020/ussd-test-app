@@ -29,7 +29,7 @@ This is ussd test app build with express js a Node framework.
  - Node JS
  - VS code(any IDE)
  - Git
-
+- Visual Studio code
   
 ### Setup
 
