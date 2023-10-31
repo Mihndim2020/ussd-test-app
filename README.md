@@ -39,7 +39,7 @@ This is ussd test app build with express js a Node framework.
 
 ### Usage
 - Enter  npm start in the terminal after installing dependencies
-- Use npm start to start the project
+
 
 ### Run tests
 - Not yet available at the moment
