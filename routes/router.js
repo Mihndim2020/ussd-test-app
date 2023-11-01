@@ -5,6 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
+    console.log(req.headers.host);
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
@@ -38,7 +39,7 @@ router.get("/enterpayupfront", (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":"Please enter your tax number: ",
+        "message":"Please enter your bill/tax number: ",
         "form": {
            // "url": `${process.env.baseUrl}/payorexit`,
             "url": "https://cad5-ussd.onrender.com/enteramount",
@@ -76,7 +77,7 @@ router.get("/enterpaidbill", (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":"Please enter your tax number: ",
+        "message":"Please enter your bill/tax number: ",
         "form": {
            // "url": `${process.env.baseUrl}/payorexit`,
             "url": "https://cad5-ussd.onrender.com/billpaid",
@@ -95,7 +96,7 @@ router.get("/enterbilltocheck", (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":"Please enter your tax number: ",
+        "message":"Please enter your bill/tax number: ",
         "form": {
            // "url": `${process.env.baseUrl}/payorexit`,
             "url": "https://cad5-ussd.onrender.com/payorexit",
@@ -114,7 +115,7 @@ router.get("/payorexit", (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
-        "message":`M. XYZ, your tax number ${Math.floor(100000000 + Math.random() * 900000000)} of amount ${Math.floor(100000 + Math.random() * 900000)} XAF  is available for payment: `,
+        "message":`M./Ms XYZ, your tax number ${Math.floor(100000000 + Math.random() * 900000000)} of amount ${Math.floor(100000 + Math.random() * 900000)} XAF  is available for payment: `,
         "links": [
             {
             "content":" Pay my tax",
