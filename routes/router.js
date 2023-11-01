@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require("express");
+const check_bill = require("../controllers/ussd_pages");
 // set the routes as environmental variables... 
 
 const router = express.Router();
@@ -111,30 +112,32 @@ router.get("/enterbilltocheck", (req, res) => {
     })
 })
 
-router.get("/payorexit", async (req, res) => {
-    res.json({
-        "title":"Mairie de Douala 5ème",
-      "name": "Diool Bill payments",
-        "message":`M./Ms XYZ, your tax number ${Math.floor(100000000 + Math.random() * 900000000)} of amount ${Math.floor(100000 + Math.random() * 900000)} XAF  is available for payment: `,
-        "links": [
-            {
-            "content":" Pay my tax",
-           // "url":`${process.env.baseUrl}/enterphonetopay`
-            "url":"https://cad5-ussd.onrender.com/choosetelco"
-            },
-            {
-            "content":" To Quit",
-           // "url":`${process.env.baseUrl}/quit` 
-            "url":"https://cad5-ussd.onrender.com/quit" 
-            }
-        ],
-        "page":{
-            "menu":"true",
-            "history":"true",
-            "navigation_keywords":"true"
-        }
-    })
-})
+router.get("/payorexit", check_bill )
+
+// router.get("/payorexit", async (req, res) => {
+//     res.json({
+//         "title":"Mairie de Douala 5ème",
+//       "name": "Diool Bill payments",
+//         "message":`M./Ms XYZ, your tax number ${Math.floor(100000000 + Math.random() * 900000000)} of amount ${Math.floor(100000 + Math.random() * 900000)} XAF  is available for payment: `,
+//         "links": [
+//             {
+//             "content":" Pay my tax",
+//            // "url":`${process.env.baseUrl}/enterphonetopay`
+//             "url":"https://cad5-ussd.onrender.com/choosetelco"
+//             },
+//             {
+//             "content":" To Quit",
+//            // "url":`${process.env.baseUrl}/quit` 
+//             "url":"https://cad5-ussd.onrender.com/quit" 
+//             }
+//         ],
+//         "page":{
+//             "menu":"true",
+//             "history":"true",
+//             "navigation_keywords":"true"
+//         }
+//     })
+// })
 
 router.get("/choosetelco", (req, res) => {
     res.json({
