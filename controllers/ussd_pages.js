@@ -19,11 +19,11 @@ module.exports.check_bill = async (req, res) => {
        }
 
         if (data.code === 0 && data.result.status === "PENDING_PAYMENT") {
-        message = `M./Ms ${data.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have ${data.result.expire} ${data.result.expire} left to settle your bill`
+        message = `M./Ms ${data.result.sender.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have ${data.result.expire} ${data.result.expire} left to settle your bill`
        } 
 
        if (data.code === 0 && data.result.status !== "PENDING_PAYMENT" ) {
-        message = `M./Ms ${data.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is has been paid. Thank you for using Diool`  
+        message = `M./Ms ${data.result.sender.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is has been paid. Thank you for using Diool`  
        }
         
         res.json({
