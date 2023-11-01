@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require("express");
+const axios = require("axios");
 // set the routes as environmental variables... 
 
 const router = express.Router();
@@ -111,7 +112,7 @@ router.get("/enterbilltocheck", (req, res) => {
     })
 })
 
-router.get("/payorexit", (req, res) => {
+router.get("/payorexit", async (req, res) => {
     res.json({
         "title":"Mairie de Douala 5ème",
       "name": "Diool Bill payments",
