@@ -7,7 +7,9 @@ module.exports.check_bill = async (req, res) => {
     try {
        const response = await axios.get(`https://core.diool.com/core/onlinepayment/v1/payment/${userEntry}`, {
         headers: {
-            Authorization: `${process.env.checkBillToken}`,
+            "Authorization": `${process.env.checkBillToken}`,
+            "Content-Type": "application/json",
+            "X-Beversion": "4.0.0"
         }
     });
        const data = await response.data;
