@@ -16,38 +16,64 @@ module.exports.check_bill = async (req, res) => {
 
        if (data.code === 404) {
         message = "Oups, the bill/tax number entered can not be found, please check the number and try again";
+        res.json({
+            "title":"Mairie de Douala 5ème",
+            "name": "Diool Bill payments",
+            "message":`${message}`,
+            // "message":"Please enter your bill/tax number: ",
+            "form": {
+               // "url": `${process.env.baseUrl}/payorexit`,
+                "url": "https://cad5-ussd.onrender.com/payorexit",
+                "type": "text",
+                "method": "get"
+            },
+            "page":{
+                "menu":"true",
+                "history":"true",
+                "navigation_keywords":"true"
+            }
+        })
        }
 
         if (data.code === 0 && data.result.status === "PENDING_PAYMENT") {
-        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have ${data.result.expire} ${data.result.expireUnit} left to settle your bill`
+        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have ${data.result.expire} ${data.result.expireUnit} left to settle your bill`;
+
+        res.json({
+            "title":"Mairie de Douala 5ème",
+          "name": "Diool Bill payments",
+            "message":`${message}`,
+            "links": [
+                {
+                "content":" Pay my tax",
+               // "url":`${process.env.baseUrl}/enterphonetopay`
+                "url":"https://cad5-ussd.onrender.com/choosetelco"
+                },
+                {
+                "content":" To Quit",
+               // "url":`${process.env.baseUrl}/quit` 
+                "url":"https://cad5-ussd.onrender.com/quit" 
+                }
+            ],
+            "page":{
+                "menu":"true",
+                "history":"true",
+                "navigation_keywords":"true"
+            }
+        })
+
        } 
 
        if (data.code === 0 && data.result.status !== "PENDING_PAYMENT" ) {
-        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is has been paid. Thank you for using Diool`  
+        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is has been paid. Thank you for using Diool`;
+        res.json({
+            "page":{
+                "session_end":"true"
+            },
+            "message":`${message}`, // customize messages will be useful here. 
+        })  
        }
         
-        res.json({
-        "title":"Mairie de Douala 5ème",
-      "name": "Diool Bill payments",
-        "message":`${message}`,
-        "links": [
-            {
-            "content":" Pay my tax",
-           // "url":`${process.env.baseUrl}/enterphonetopay`
-            "url":"https://cad5-ussd.onrender.com/choosetelco"
-            },
-            {
-            "content":" To Quit",
-           // "url":`${process.env.baseUrl}/quit` 
-            "url":"https://cad5-ussd.onrender.com/quit" 
-            }
-        ],
-        "page":{
-            "menu":"true",
-            "history":"true",
-            "navigation_keywords":"true"
-        }
-    })
+  
     } catch (error) {
         res.json({
             "page":{
