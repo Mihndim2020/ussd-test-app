@@ -14,7 +14,7 @@ This is ussd test app build with express js a Node framework.
 ### Technologies used
 - GIT
 - GitHub
-- Visual Studio code
+
 
 ## Live Demo (Comming soon)
 
@@ -23,19 +23,19 @@ This is ussd test app build with express js a Node framework.
 
 ## Getting Started
 - Use npm install to install dependencies
-- Run npm run start to run the project
+- Run npm run dev to start the dev server
 
 ### Prerequisites
  - Node JS
  - VS code(any IDE)
- - Browser
  - Git
-
+- Visual Studio code
+  
 ### Setup
 
 ### Install
 - Use npm install to install dependencies
-- Use npm start to start the project
+- Use npm run dev to start the project
 
 ### Usage
 - Enter  npm start in the terminal after installing dependencies
@@ -70,8 +70,8 @@ Give a ⭐️ if you like this project!
 - FreeCodeCamp
 - Microverse community
 - W3Schools
-- Udemy
-- Coursera
+- Myriad Connect
+
 
 ## 📝 License
 
