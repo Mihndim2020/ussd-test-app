@@ -112,7 +112,7 @@ router.get("/enterbilltocheck", (req, res) => {
     })
 })
 
-router.get("/payorexit", ussdPages.check_bill )
+router.get("/payorexit", ussdPages.check_bill );
 
 // router.get("/payorexit", async (req, res) => {
 //     res.json({
