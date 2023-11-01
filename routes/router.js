@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require("express");
-const check_bill = require("../controllers/ussd_pages");
+const ussdPages = require("../controllers/ussd_pages");
 // set the routes as environmental variables... 
 
 const router = express.Router();
@@ -112,7 +112,7 @@ router.get("/enterbilltocheck", (req, res) => {
     })
 })
 
-router.get("/payorexit", check_bill )
+router.get("/payorexit", ussdPages.check_bill )
 
 // router.get("/payorexit", async (req, res) => {
 //     res.json({
