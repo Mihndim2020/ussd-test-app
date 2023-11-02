@@ -79,8 +79,8 @@ module.exports.check_bill = async (req, res) => {
             "page":{
                 "session_end":"true"
             },
-            //"message": `${error.message}`
-            "message": `We faced with an error while processing your request, please try again later`
+            "message": `${error.message}`
+            //"message": `We faced with an error while processing your request, please try again later`
         }) 
     }
 } 
