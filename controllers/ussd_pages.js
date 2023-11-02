@@ -36,7 +36,7 @@ module.exports.check_bill = async (req, res) => {
        }
 
         if (data.code === 0 && data.result.status === "PENDING_PAYMENT") {
-        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have until ${data.result.expiresOn.toLocaleDateString()} to settle your bill`;
+        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have until ${new Date(data.result.expiresOn).toLocaleDateString()} to settle your bill`;
 
         res.json({
             "title":"Mairie de Douala 5ème",
