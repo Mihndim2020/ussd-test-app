@@ -36,7 +36,7 @@ module.exports.check_bill = async (req, res) => {
        }
 
         if (data.code === 0 && data.result.status === "PENDING_PAYMENT") {
-        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have ${data.result.expire} ${data.result.expireUnit} left to settle your bill`;
+        message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is pending payment. Please you have until ${data.result.expiresOn.toLocaleDateString()} to settle your bill`;
 
         res.json({
             "title":"Mairie de Douala 5ème",
@@ -63,7 +63,7 @@ module.exports.check_bill = async (req, res) => {
 
        } 
 
-       if (data.code === 0 && data.result.status !== "PENDING_PAYMENT" ) {
+       if (data.code === 0 && data.result.status === "PAID" ) {
         message = `M./Ms ${data.result.recipient.lastName}, your bill ${data.result.referenceId} of amount: ${data.result.amount} is has been paid. Thank you for using Diool`;
         res.json({
             "page":{
@@ -79,8 +79,8 @@ module.exports.check_bill = async (req, res) => {
             "page":{
                 "session_end":"true"
             },
-            "message": `${error.message}, ${userEntry}`
-            //"message": `We faced with an error while processing your request, please try again later`
+            //"message": `${error.message}`
+            "message": `We faced with an error while processing your request, please try again later`
         }) 
     }
 } 
