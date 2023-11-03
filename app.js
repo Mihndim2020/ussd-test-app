@@ -22,4 +22,4 @@ app.use("/", router)
 
 app.listen(PORT, () => {
     console.log(`The server is listening on Port: ${PORT}`);
-})
+});
