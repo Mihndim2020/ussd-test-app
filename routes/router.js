@@ -97,7 +97,7 @@ router.get("/enterphonetopay", (req, res) => {
         paymentMethod = "EUMM"
     }
 
-    ussdCache.set("providerCode", paymentMethod); // We have to link this to a session... We need unique keys, we don't know if there is a possibility of serveral copies existing at the same time. 
+    ussdCache.set(paymentMethod, paymentMethod); // We have to link this to a session... We need unique keys, we don't know if there is a possibility of serveral copies existing at the same time. 
 
     res.json({
        "title":`${process.env.pageTitle}`,
@@ -133,7 +133,7 @@ router.get("/paymentrequest", (req, res) => {
 
         const response = await axios.post(`https://core.diool.me/core/onlinepayment/v1/payRfp`, {
               "providerAccountID": `237${phoneNumber}`,
-              "providerCode": `${ussdCache.get(providerCode)}`, // Checking the telco still to be implemented. 
+              "providerCode": `${ussdCache.get(paymentMethod)}`, // Checking the telco still to be implemented. 
               "requestPaymentReference": rfpReference 
           }, {
               headers: {
