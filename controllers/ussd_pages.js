@@ -6,10 +6,6 @@ const ussdCache = new Cache({ stdTTL: 100, deleteOnExpire: true, checkperiod: 12
 module.exports.check_bill = async (req, res) => {
     let userMsisdn = req.headers["user-msisdn"]; // We will add a default value here for test in case the value is not provided by Myriad in the request headers.
 
-    if (!userMsisdn) {
-        userMsisdn = "237677999999";
-    }
-
     const userEntry = req.headers["user-entry"];
 
        // Set the value in cache. 
