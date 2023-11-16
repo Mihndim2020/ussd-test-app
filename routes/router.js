@@ -134,8 +134,8 @@ router.get("/paymentrequest", (req, res) => {
 
     console.log("phoneNumber", phoneNumber);
 
-    const rfpReference = ussdCache.get(userMsisdn);
-    console.log("The rfp referene is:",  ussdCache.get(userMsisdn));
+    const rfpReference = ussdCache.get("uniqueReference");
+    console.log("The rfp referene is:",  ussdCache.get("uniqueReference"));
 
     const sendPaymentRequest = async () => {
 
