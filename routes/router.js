@@ -94,14 +94,16 @@ router.get("/enterphonetopay", async (req, res) => {
     
     if (req.headers["user_entry"] === 1) {
         paymentMethod = "62401"
-    } else if (req.headers["user_entry"] === 2) {
+    }; 
+    if (req.headers["user_entry"] === 2) {
         paymentMethod = "62402"
-    } else {
+    } 
+    if(req.headers["user_entry"] === 2) {
         paymentMethod = "EUMM"
     }
     
     console.log("Telco", paymentMethod);
-    
+
     ussdCache.set(paymentMethod, paymentMethod); // We have to link this to a session... We need unique keys, we don't know if there is a possibility of serveral copies existing at the same time. 
 
     console.log(ussdCache.get(paymentMethod));
