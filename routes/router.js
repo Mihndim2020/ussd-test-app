@@ -93,13 +93,13 @@ router.get("/enterphonetopay", async (req, res) => {
     console.log("User Entry", req.headers["user_entry"]);
 
     
-    if (req.headers["user_entry"] === 1) {
+    if (req.headers["user_entry"] === "1") {
         paymentMethod = "62401"
     }; 
-    if (req.headers["user_entry"] === 2) {
+    if (req.headers["user_entry"] === "2") {
         paymentMethod = "62402"
     } 
-    if(req.headers["user_entry"] === 2) {
+    if(req.headers["user_entry"] === "3") {
         paymentMethod = "EUMM"
     }
     
