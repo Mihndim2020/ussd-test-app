@@ -90,14 +90,14 @@ router.get("/enterphonetopay", async (req, res) => {
     let paymentMethod;
 
     console.log("Request headers", req.headers);
-    console.log("User Entry", req.headers["user_entry"]);
+    console.log("User Entry", req.headers["user_entry"]); // User entry is passed in as a string... 
 
     
     if (req.headers["user_entry"] === "1") {
-        paymentMethod = "62401"
+        paymentMethod = "62402"
     }; 
     if (req.headers["user_entry"] === "2") {
-        paymentMethod = "62402"
+        paymentMethod = "62401"
     } 
     if(req.headers["user_entry"] === "3") {
         paymentMethod = "EUMM"
@@ -128,13 +128,10 @@ router.get("/enterphonetopay", async (req, res) => {
 });
 
 router.get("/paymentrequest", (req, res) => {
+    
+    const phoneNumber = `237${req.headers["user-entry"]}`; // Value to be used in later implementations, using aliases as unique identifiers.. 
 
-    const userMsisdn = req.headers["user-msisdn"]; // We need to look for way to uniquely identify a cache value if msisdn is not provided... 
-    const phoneNumber = req.headers["user-entry"]; // Value to be used in later implementations, using aliases as unique identifiers.. 
-
-    // if (!userMsisdn) {
-    //     userMsisdn = "237677999999";
-    // }
+    console.log("phoneNumber", phoneNumber);
 
     const rfpReference = ussdCache.get(userMsisdn);
     console.log("The rfp referene is:",  ussdCache.get(userMsisdn));
@@ -142,7 +139,7 @@ router.get("/paymentrequest", (req, res) => {
     const sendPaymentRequest = async () => {
 
         const response = await axios.post(`https://core.diool.me/core/onlinepayment/v1/payRfp`, {
-              "providerAccountID": `237${phoneNumber}`,
+              "providerAccountID": phoneNumber,
               "providerCode": `${ussdCache.get(paymentMethod)}`, // Checking the telco still to be implemented. 
               "requestPaymentReference": rfpReference 
           }, {
