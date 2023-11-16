@@ -99,6 +99,8 @@ router.get("/enterphonetopay", (req, res) => {
 
     ussdCache.set(paymentMethod, paymentMethod); // We have to link this to a session... We need unique keys, we don't know if there is a possibility of serveral copies existing at the same time. 
 
+    console.log(ussdCache.get(paymentMethod));
+
     res.json({
        "title":`${process.env.pageTitle}`,
        "name": "Diool Bill payments",
