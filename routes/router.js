@@ -89,6 +89,8 @@ router.get("/enterphonetopay", (req, res) => {
 
     let paymentMethod = req.headers["user-entry"];
 
+    console.log("Telco", paymentMethod);
+
     if (paymentMethod === 1) {
         paymentMethod = "62401"
     } else if (paymentMethod === 2) {
