@@ -90,6 +90,7 @@ router.get("/enterphonetopay", async (req, res) => {
     let paymentMethod;
 
     console.log("Request headers", req.headers);
+    console.log("User Entry", req.headers["user_entry"]);
 
     
     if (req.headers["user_entry"] === 1) {
