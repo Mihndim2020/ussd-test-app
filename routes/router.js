@@ -128,7 +128,8 @@ router.get("/enterphonetopay", async (req, res) => {
 });
 
 router.get("/paymentrequest", (req, res) => {
-    
+
+    const userMsisdn = req.headers["user-msisdn"]; // We need to look for way to uniquely identify a cache value if msisdn is not provided... 
     const phoneNumber = `237${req.headers["user-entry"]}`; // Value to be used in later implementations, using aliases as unique identifiers.. 
 
     console.log("phoneNumber", phoneNumber);
