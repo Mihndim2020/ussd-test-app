@@ -87,6 +87,8 @@ router.get("/choosetelco", (req, res) => {
 
 router.get("/enterphonetopay", (req, res) => {
 
+    console.log("Request headers", req.headers);
+    
     let paymentMethod = req.headers["user-entry"];
 
     console.log("Telco", paymentMethod);
