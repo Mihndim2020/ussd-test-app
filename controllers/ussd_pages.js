@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require("axios");
 const Cache = require("node-cache");
-const ussdCache = new Cache({ stdTTL: 120, deleteOnExpire: true, checkperiod: 120 });
+const refCache = new Cache({ stdTTL: 120, deleteOnExpire: true, checkperiod: 120 });
 
 module.exports.check_bill = async (req, res) => {
    // let userMsisdn = req.headers["user-msisdn"]; // We will add a default value here for test in case the value is not provided by Myriad in the request headers.
@@ -9,9 +9,9 @@ module.exports.check_bill = async (req, res) => {
     const userEntry = req.headers["user-entry"];
 
        // Set the value in cache. 
-    ussdCache.set("uniqueReference", userEntry, 120); // We have to look for a way to make this unique... 
+    refCache.set("uniqueReference", userEntry, 120); // We have to look for a way to make this unique... 
 
-    console.log(ussdCache.get("uniqueReference"));
+    console.log("The uniqueReferenece is like: ", refCache.get("uniqueReference"));
 
     let message = "";
 
