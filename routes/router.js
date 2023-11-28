@@ -3,7 +3,7 @@ const express = require("express");
 const axios = require("axios");
 const ussdPages = require("../controllers/ussd_pages");
 const Cache = require("node-cache");
-const ussdCache = new Cache({ stdTTL: 100, deleteOnExpire: true, checkperiod: 120 });
+const ussdCache = new Cache({ stdTTL: 120, deleteOnExpire: true, checkperiod: 120 });
 // set the routes as environmental variables... 
 
 const router = express.Router();
@@ -106,7 +106,7 @@ router.get("/enterphonetopay", async (req, res) => {
     
     console.log("Telco", paymentMethod);
 
-    ussdCache.set(paymentMethod, paymentMethod); // We have to link this to a session... We need unique keys, we don't know if there is a possibility of serveral copies existing at the same time. 
+    ussdCache.set(paymentMethod, paymentMethod, 120); // We have to link this to a session... We need unique keys, we don't know if there is a possibility of serveral copies existing at the same time. 
 
     console.log(ussdCache.get(paymentMethod));
 
