@@ -2,8 +2,9 @@ require('dotenv').config();
 const express = require("express");
 const axios = require("axios");
 const ussdPages = require("../controllers/ussd_pages");
-const Cache = require("node-cache");
-const ussdCache = new Cache({ stdTTL: 120, deleteOnExpire: true, checkperiod: 120 });
+const ussdCache = require("../cache");
+//const Cache = require("node-cache");
+//const ussdCache = new Cache({ stdTTL: 120, deleteOnExpire: true, checkperiod: 120 });
 // set the routes as environmental variables... 
 
 const router = express.Router();
